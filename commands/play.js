@@ -2,7 +2,7 @@ const {GuildMember} = require('discord.js');
 const {QueryType} = require('discord-player');
 
 module.exports = {
-  name: 'play',
+  name: 'tocar',
   description: 'Play a song in your channel!',
   options: [
     {

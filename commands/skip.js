@@ -1,7 +1,7 @@
 const {GuildMember} = require('discord.js');
 
 module.exports = {
-  name: 'skip',
+  name: 'saltar',
   description: 'Skip a song!',
   async execute(interaction, player) {
     if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
