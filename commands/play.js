@@ -51,6 +51,10 @@ module.exports = {
 				dlChunkSize: 0,
 			},
         metadata: interaction.channel,
+        leaveOnEnd: false,
+        leaveOnStop: false,
+        leaveOnEmpty: false,
+        leaveOnEmptyCooldown: 5*60*1000
       });
 
       try {
@@ -63,7 +67,7 @@ module.exports = {
       }
 
       await interaction.followUp({
-        content: `⏱ | Loading your ${searchResult.playlist ? 'playlist' : 'track'}...`,
+        content: `${interaction.user} quiere tocar **${query}**`,
       });
       searchResult.playlist ? queue.addTracks(searchResult.tracks) : queue.addTrack(searchResult.tracks[0]);
       if (!queue.playing) await queue.play();
