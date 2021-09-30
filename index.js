@@ -18,6 +18,8 @@ console.log(client.commands);
 
 const player = new Player(client);
 
+var timeoutObj;
+
 player.on('error', (queue, error) => {
   console.log(`[${queue.guild.name}] Error emitted from the queue: ${error.message}`);
 });
@@ -32,6 +34,7 @@ player.on('trackStart', (queue, track) => {
 
 player.on('trackAdd', (queue, track) => {
   queue.metadata.send(`🎶 | Se agrego el Track **${track.title}**!`);
+  clearTimeout(timeoutObj)
 });
 
 player.on('botDisconnect', queue => {
@@ -44,6 +47,11 @@ player.on('channelEmpty', queue => {
 
 player.on('queueEnd', queue => {
   //queue.metadata.send('✅ | Queue finished!');
+  timeoutObj = setTimeout(() => {
+      if (!player.queues.has(queue.guild.id)) return;
+      if (player.queues.get(queue.guild.id).playing) return;
+      queue.destroy();
+  }, 5*60*1000);
 });
 
 client.once('ready', async () => {

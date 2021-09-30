@@ -52,9 +52,7 @@ module.exports = {
 			},
         metadata: interaction.channel,
         leaveOnEnd: false,
-        leaveOnStop: false,
-        leaveOnEmpty: false,
-        leaveOnEmptyCooldown: 5*60*1000
+        leaveOnEmptyCooldown: 15*1000
       });
 
       try {
