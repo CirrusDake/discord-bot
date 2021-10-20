@@ -52,7 +52,13 @@ module.exports = {
 			},
         metadata: interaction.channel,
         leaveOnEnd: false,
-        leaveOnEmptyCooldown: 15*1000
+        leaveOnEmptyCooldown: 15*1000,
+        ytdlOptions: {
+                        quality: "highest",
+                        filter: "audioonly",
+                        highWaterMark: 1 << 25,
+                        dlChunkSize: 0,
+                    }
       });
 
       try {

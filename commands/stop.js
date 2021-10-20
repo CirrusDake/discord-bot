@@ -1,7 +1,7 @@
 const {GuildMember} = require('discord.js');
 
 module.exports = {
-  name: 'stop',
+  name: 'detener',
   description: 'Stop all songs in the queue!',
   async execute(interaction, player) {
     if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {
