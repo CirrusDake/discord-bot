@@ -1,10 +1,8 @@
 const {GuildMember} = require('discord.js');
 
 module.exports = {
-
-    name: 'queue',
-    description: 'View the queue of current songs!',
-
+    name: 'cola',
+    description: 'Ver la cola',
     async execute (interaction, player) {
 
         if (!(interaction.member instanceof GuildMember) || !interaction.member.voice.channel) {

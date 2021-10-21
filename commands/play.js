@@ -3,7 +3,7 @@ const {QueryType} = require('discord-player');
 
 module.exports = {
   name: 'tocar',
-  description: 'Play a song in your channel!',
+  description: 'Tocar una cancion en Bakan',
   options: [
     {
       name: 'query',
